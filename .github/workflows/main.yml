@@ -15,13 +15,17 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+        echo ${GITHUB_REF##*/}
     - name: multiple command
       uses: appleboy/ssh-action@master
+      env:
+        DEPLOYMENT: ${GITHUB_REF##*/}
       with:
         host: ${{ secrets.HOST }}
         username: develop
         key: ${{ secrets.SSH_KEY }}
         port: 2222
+        envs: DEPLOYMENT
         script: |
           whoami
           ls -al
