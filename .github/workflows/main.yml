@@ -27,6 +27,4 @@ jobs:
         port: 2222
         envs: DEPLOYMENT
         script: |
-          whoami
-          ls -al
-          echo ${DEPLOYMENT}
+          env
