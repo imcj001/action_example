@@ -15,7 +15,7 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-        echo ${GITHUB_REF##*/}
+        echo ${{ github.ref }}
     - name: multiple command
       uses: appleboy/ssh-action@master
       env:
