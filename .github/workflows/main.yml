@@ -19,7 +19,7 @@ jobs:
     - name: multiple command
       uses: appleboy/ssh-action@master
       env:
-        DEPLOYMENT: ${GITHUB_REF:11}
+        DEPLOYMENT: ${{ github.ref }}
         BOO: "123"
       with:
         host: ${{ secrets.HOST }}
@@ -28,5 +28,5 @@ jobs:
         port: 2222
         envs: DEPLOYMENT,BOO
         script: |
-          echo "$DEPLOYMENT"
+          echo "${DEPLOYMENT:11}"
           echo "$BOO"
