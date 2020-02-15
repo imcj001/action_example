@@ -15,11 +15,12 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-        echo ${{ github.ref }}
+        echo ${GITHUB_REF:11}?
     - name: multiple command
       uses: appleboy/ssh-action@master
       env:
         DEPLOYMENT: ${GITHUB_REF##*/}
+        BOO: "123" 
       with:
         host: ${{ secrets.HOST }}
         username: develop
