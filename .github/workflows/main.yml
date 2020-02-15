@@ -29,4 +29,4 @@ jobs:
         script: |
           whoami
           ls -al
-          echo ${GITHUB_REF##*/}
+          echo ${DEPLOYMENT}
